@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Files_cpp</title>
+		<link href="matrici/matrici.css" rel="stylesheet" type="text/css">
+		<script src="matrici/script2.js"></script>
+	</head>
+	<body>
+	<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+	<button onclick="go_main2()" id="main_page"> Pagina principală </button>
+		<center>Fișiere text</center>
+		<br><br>
+		 <hr><br>
+		 <em>Subcapitole:</em><br>
+		 <button onclick="scrollWin(189)" class="scroller">Introducere</button>
+		 <button onclick="scrollWin(1797)" class="scroller">Citirea Până La Finalul Fișierului+CodeBlocks</button>
+		 <br><br><br><hr><br><br>
+		 <big id="subtit">Introducere:</big><br>
+		<p>Probabil că atunci când ai încercat să rezolvi probleme cu matrice, a fost destul de deranjant când trebuia să introduci o matrice mai mare. Mai mult, dacă programul tău nu afișa un răspuns corect, după ce corectai programul trebuia să introduci matricea din nou.
+<br>
+Sunt sigur că ai salvat imagini, documente sau fișiere pe calculator pentru a le putea folosi mai târziu. Aceste fișiere sunt deschise de diverse programe. Ar fi foarte util dacă am putea să ne salvăm matricile, vectorii sau numerele în fișiere și să îi spunem programului nostru să citeasca din fișier, pentru a nu trebui să introducem datele de fiecare dată de la tastatură.
+<br>
+În C++ putem face acest lucru în felul următor:</p>
+<br><br>
+<sub>sintaxa:</sub>
+<pre>
+#include < fstream>
+using namespace std;
+
+int main() {
+  ifstream in("data.in");
+  ofstream out("data.in");
+  int a,b,c,d;
+  in>>a>>b>>c;
+  d=a+b+c;
+  out<< d;
+  out.close();
+  return 0;
+}
+</pre>
+<br><br>
+<p>Programul de mai sus citește 3 numere a,b si c din fișierul data.in și afișează suma lor în fișierul data.out;
+În video-ul de mai jos poți vedea cum să folosești fișierele text în CodeBlocks:</p>
+<br><br><br>
+<center id="vid">
+<iframe src="https://www.youtube.com/embed/SorWHmhI_24">
+</iframe></center>
+<br><br><br><br><br>
+<sub>Explicatie:</sub><br>
+<p> 
+"fstream" e numele antetului in care gasim tipurile de date ifstream si ofstream.<br>
+Cu ifstream putem crea o variabila pe care sa o folosim pentru a citi date din fisierul aflat intre paranteze.<br>
+Cu ofstream putem crea o variabila pe care o folosim pt. a scrie date in fisierul aflat intre paranteze<br> 
+Pentru ca modificarile facute intr-un fisier dupa o operatie de scriere sa fie salvate folosim functia close();<br>
+</p>
+<p>
+Variabilele de tip ifstream si ofstream fuctioneaza ca si cin si cout.
+</p>
+<br><br><br><br>
+<big id="subtit">CodeBlocks:</big><br>
+<p>Pentru a folosi fișiere text în cadrul unui proiect în CodeBlocks, trebuie să dai click pe<sub> File > New > Empty file sau să apeși Ctrl + Shift + N</sub>, să apeși Yes la <sub>Do you want to add this new file in the active project?.</sub> Înainte să dai Save, trebuie să îi dai fișierul un nume și să alegi opțiunea pentru Save as type să fie ultima din listă, adică All files(.).
+<br>
+Execută pasul de mai sus pentru fiecare fișier pe care vrei să îl folosești în program.
+<br>
+Pentru a deschide fișierele create în CodeBlocks, apasă pe + din stânga folderului Others și dă dublu click pe fiecare fișier pe care vrei să-l deschizi, alege <sub>Open it inside the Code::Blocks</sub> editor și apasă OK.
+<br>
+Acum poți scrie date în fișierele create și să le citești sau să le scrii în alt fișier din main.cpp.<br>
+<br><br><br>
+<big id="subtit">Citirea până la finalul fișierului</big><br>
+<p>Din fericire nu trebuie să specificăm întotdeauna la începutul fișierului câte numere urmează să citim sau să marcăm cu 0 finalul datelor:
+</p><br>
+<pre>
+#include < fstream>
+#include < iostream>
+using namespace std;
+
+int main() {
+  ifstream fin ("input.txt");
+  int x;
+  while(fin >> x) {
+    cout << x << " ";
+  }
+  return 0;
+}
+</pre>
+<br>
+<p>
+La rulare se va afișa 3 -235 72 2 3 4.<br>
+Acest lucru este posibil deoarece <sub>fin >> x</sub> va deveni fals în momentul în care nu se mai poate citi din fișier.<hr><br>
+<br><br><br><br><br>
+<em>Vezi şi:</em>
+<a href="matrici/matrici.html" >* matrici</a>
+<br>
+<small>________</small>
+<a href="matrici/matriciP.html">* matrici patratice</a><br>
+<small>________</small>
+<a href="probleme.html">* probleme</a>
+<br><br><br>
+<footer>
+</footer>
+	</body>
+</html>

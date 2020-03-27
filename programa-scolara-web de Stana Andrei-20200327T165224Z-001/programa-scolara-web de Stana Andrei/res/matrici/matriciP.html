@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>matrici_patratice_cpp</title>
+		<link href="matrici.css" rel="stylesheet" type="text/css">
+		<script src="script2.js"></script>
+	</head>
+	<body>
+	<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+		<div>
+         <button onclick="go_main()" id="main_page"> Pagina principală </button>
+		<center>MATRICI PATRATICE</center>
+		</div><br>
+		<span>
+		<hr><br>
+		<em>Subcapitole:</em><br>
+		<button onclick="scrollWin(152)" class="scroller">Introducere</button>
+        <button onclick="scrollWin(1066)" class="scroller" >Diagonala principală</button>
+		<button onclick="scrollWin(3100)" class="scroller">Diagonala secundară</button>
+		<br> <br><br> <hr>
+		</span>
+		<big id="subtit">Introducere:</big><br>
+		<p>Un tablou bidimensional este tablou pătratic sau matrice pătratică dacă numărul de linii este egal cu numărul de coloane.<br>
+
+În această situație folosim pentru ambele dimensiuni o singură variabilă, de regulă n:<br>
+</p>
+<sub>declarare</sub><br>
+<pre>int n, A[100][100];</pre>
+<br>
+<em>exemplu:</em>
+<br>
+<pre>
+for(int i = 0 ; i < n ; i ++)
+{
+    // A[i][i]
+}
+</pre>
+<br><br>
+	<table>
+		<tr>
+			<td class="cent">Indexare de la <code>0</code><small>____________________________________________________________</small></td> 
+			<td class="cent">Indexare de la <code>1</code> </td>
+		</tr>
+		<tr> 
+			<td class="cent"><br> <img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-patratica-01-0.png?1" </td><small>______________________________________________</small>
+			<td class="cent"><img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-patratica-01-1.png"</td>
+		</tr>
+	</table>
+	<br><br><br>
+	<p>Într-o matrice pătratică se disting o categorie specială de elemente, diagonalele.<br>
+	Un element al matricei aparține sau nu diagonalelor sau zonelor delimitate de acestea dacă respectă anumite reguli, în care intervin indicii elementului, nu valoarea elementului.<br>
+	În cele ce urmează, pentru un element oarecare al matricei vom nota cu i indicele de linie și cu j indicele de coloană.</p>
+	<br><br><br><br>
+	<!--diagonala-->
+	<big id="subtit">Diagonala principala:</big>
+	<br><br><br>
+	
+	
+	<table>
+		<tr>
+			<td class="cent">Indexare de la <code>0</code><small>____________________________________________________________</small></td> 
+			<td class="cent">Indexare de la <code>1</code> </td>
+		</tr>
+		<tr> 
+			<td class="cent"><br> <img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-patratica-02-0.png" </td><small>______________________________________________</small>
+			<td class="cent"><img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-patratica-02-1.png"</td>
+		</tr>
+		<tr>
+			<td class="cent"><code>i = j</code><small>_________________________________________________________________________<small> </td>
+			
+			<td class="cent"><code>i = j</code> </td>
+		</tr>
+	</table>
+	
+	
+	<br><br><br><br>
+	<sub>Parcurgerea elementelor de pe diagonala principală:</sub>
+	<pre>
+	for(int i = 0 ; i < n ; i ++)
+{
+    //A[i][i]
+}
+</pre>
+<br><br><br>
+<sub>Prelucrarea elementelor de pe diagonala principala:</sub>
+<pre>
+for (i=0;i< n;i++)
+for (j=0;j< n;j++)
+if (i==j)
+{
+//prelucrare A[i][j];
+}
+</pre>
+<br><br><br><br>
+<sub>Parcurgerea elementelor de sub diagonala principala:</sub>
+<pre>
+for (i=1;i< n;i++)
+for (j=0;j< i;j++)
+{
+// A[i][j];
+}
+</pre>
+<br><br><br><br>
+<sub>Prelucrarea elementelor de sub diagonala pricipala:</sub>
+<pre>
+for (i=1;i< n;i++)
+for (j=0;j< n;j++)
+if (j< i)
+{
+//prelucrare A[i][j];
+}
+</pre>
+<br><br><br><br>
+<sub>Parcurgerea elementelor de deasupra diagonalei principale:</sub>
+<pre>
+for (i=0;i< n-1;i++)
+for (j=i+1;j< n;j++)
+{
+//A[i][j]
+}
+</pre>
+<br><br><br><br>
+<sub>Prelucrarea elementelor de deasupra diagonalei principale:</sub>
+<pre>
+for (i=0;i< n;i++)
+for (j=0;j< n;j++)
+if (j>i)
+{
+//prelucrare A[i][j];
+}
+</pre>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<big id="subtit">Diagonala secundara:</big>
+<br><br><br><br>
+<table>
+		<tr>
+			<td class="cent">Indexare de la <code>0</code><small>____________________________________________________________</small></td> 
+			<td class="cent">Indexare de la <code>1</code> </td>
+		</tr>
+		<tr> 
+			<td class="cent"><br> <img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-patratica-03-0.png" </td><small>______________________________________________</small>
+			<td class="cent"><img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-patratica-03-1.png"</td>
+		</tr>
+		<tr>
+			<td class="cent"><code>i+j=n-1</code><small>_________________________________________________________________________<small> </td>
+			
+			<td class="cent"><code>i+j=n+1</code> </td>
+		</tr>
+	</table>
+	<br><br><br><br>
+<strong>Observație:</strong> 
+<p>Dacă n este impar, cele două diagonale au un element comun. Dacă n este par, cele două diagonale nu au elemente comune.</p>
+<br><br><br>
+<sub>Parcurgerea elementelor de pe diagonala secundară:</sub>
+<pre>
+//indexare de la 0 la n-1                            
+for(int i = 0 ; i < n ; i ++)                
+{                                              
+    // A[i][n - 1 - i]                         
+}          
+//indexare de la 1 la n
+for(int i = 1 ; i <=n ; i ++)
+{
+//A[i][n-i+1]
+ }                                     
+</pre>
+<br><br><br><br>
+<sub>Prelucrarea elementelor de pe diagonala secundara:</sub>
+<pre>
+//indexare de la 0 la n-1                             
+for (i=0;i< n;i++)                       
+for (j=0;j< n;j++)                         
+if (j==n-i-1)// (j==n-i+1) pt indexare de la 1 la n                         
+{
+//prelucrare A[i][j]
+}
+</pre>
+<br><br><br><br><br>
+<sub>Parcurgerea elementelor de sub diagonala secundara:</sub>
+<pre>
+//indexre de la 0  la n-1                     
+for (i=1;i< n;i++)                      
+for (j=n-i;j< n;j++)                      
+{                                          
+//A[i][j];                                   
+}         
+//indexare de la 1 la n
+ for (i=2;i<= n;i++)
+ for (j=n-i+2;j<= n;j++)
+{
+//A[i][j];
+}
+</pre>
+<br><br><br><br><br>
+<sub>Prelucrarea elementelor de sub diagonala secundara:</sub>
+<pre>
+//indexare de la 0 la n-1
+for (i=0;i< n;i++)
+for (j=0;j< n;j++)
+if (j >n-i-1) //if (j >n-i+1) pt indexare de la 1 la n
+{
+//prelucrare A[i][j];
+}
+</pre>
+<br><br><br><br><br>
+<sub>Parcurgerea elementelor de deasupra diagonalei secundare:</sub>
+<pre>
+//indexare de la 0 la n-1
+for (i=0;i< n-1;i++)
+for (j=0;j< n-i-1;j++)
+{
+//A[i][j];
+}
+//indexare de la 1 la n
+for (i=1;i<= n-1;i++)
+for (j=1;j<= n-i;j++)
+{
+//a[i][j];
+}
+</pre>
+<br><br><br><br><br>
+<sub>Prelucrarea elementelor de deasupra diagonalei secundare:</sub>
+<pre>
+for (i=0;i< n;i++)
+for (j=0;j< n;j++)
+if (j < n-i-1)//if (j < n-i+1) pt indexare de la 1 la n
+{
+//prelucrare A[i][j];
+}
+</pre>
+<br><br><br><br><br>
+<em>Vezi şi:</em>
+<a href="matrici.html">* matrici</a><br>
+<small>________</small>
+<a href="../files.html">* fișiere</a><br>
+<small>________</small>
+<a href="../">* probleme</a>
+<br><br>
+<footer>	
+</footer>
+	
+	
+	
+	</body>
+</html>

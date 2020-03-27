@@ -1,0 +1,22 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+ifstream f("minmax.txt");
+
+int main()
+{
+int x,mini,maxi;
+f>>x;
+mini=x;
+maxi=x;
+while (f>>x)
+{
+    if (mini>x)
+    mini=x;
+    if (maxi<x)
+    maxi=x;
+}
+cout<<"dif="<<abs(maxi-mini);
+return 0;
+}

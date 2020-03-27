@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>matrici_cpp</title>
+		<link href="matrici.css" rel="stylesheet" type="text/css">
+		<script src="script2.js"></script>
+	</head>
+	<body>
+	<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+	<div>
+	<button onclick="go_main()" id="main_page"> Pagina principală </button>
+	<!---->
+	<center id="t">MATRICI<center>
+     </div>
+	 <hr><br>
+	 <em>Subcapitole:</em><br>
+	 <button onclick="scrollWin(170)" class="scroller">Introducere</button>
+	 <button onclick="scrollWin(2040)" class="scroller">Parcurgerea Tablourilor Bidimensionale</button>
+	 <button onclick="scrollWin(3550)" class="scroller">Eliminarea și inserare elemente</button>
+	 <br><br><br><hr><br><br><br>
+	 <big id="subtit">introducere:</big>
+	 <br>
+	<div id="container">
+	<p>Declararea tablourilor bidimensionale (matrice) face în C/C++ similar cu a tablourilor unidimensionale,
+	dar trebuie precizate două dimensiuni fizice, maximale: numărul maxim de linii și numărul maxim de coloane ale matricei:</p>
+	<br />
+	<sub>Sintaxa declarare:</sub>
+	<br>
+	<pre>tipDeBază denumire[NumarLinii][NumarColoane];</pre>
+	<br /><br>
+	<em>exemplu:</em>
+	<ul class="code_ex">
+	<li>int a[100][100];</li>
+	<li>unsigned long m[50][100];</li>
+	<li>float matrix[200][50];</li>
+	<ul>
+     <br><br>
+	 <p>Cu primul un tablou bidimensional de numere intregi (o matrice) cu 5 linii și 10 coloane. Ni-l putem imagina astfel (valorile sunt aleatorii):</p>
+    <img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-01.png">
+	</div>
+	<p>Matricea are:<br>
+5 • 10 = 50 de elemente;<br>
+5 linii, indexate (numerotate) de la 0 la 4 ;<br>
+10 coloane, indexate de la 0 la 9 ;</p>
+<br><br>
+<p>Referirea elementelor se face prin intermediul operatorului C++ de indexare [], la fel ca în cazul vectorilor, dar trebuie precizați doi indici – cel de linie și cel de coloană. Astfel, A[2][4] reprezintă elementul matricei aflat pe linia 2 și pe coloana 4 – la intersecția dintre linia 2 și coloana 4. Astfel primul indice al unui element este cel de linie, iar al doilea indice este cel de coloană.
+</p><br>
+<em>exemplu:</em><br>
+<img src="https://www.pbinfo.ro/resurse/9dc152/articole/matrice/matrice-03.png">
+<!--fds-->
+<br><br>
+<strong>observatie:</strong>
+<p>Cade în sarcina programatorului (adică tu!) să se asigure că valorile indicilor folosiți în expresiile de indexare fac parte din intervalul corect, conform declarării tabloului. Dacă valorile indicilor nu sunt corecte, comportamentul programului este impredictibil: rezultatele obținute vor fi eronate sau se vor produce erori la execuția programului. Aceste erori la execuție sunt de regulă semnalate pe pbinfo cu mesajul Killed by signal 11 sau Caught fatal signal 11.
+
+De exemplu, pentru matricea de mai sus, expresiile A[-1][7], A[2][20], A[7][7],  A[7][30] sunt greșite. Rezultatele (efectele) sunt impredictibile.
+</p>
+<br><br>
+<p> Apare firesc întrebarea: cât de mare poate fi o matrice sau, mai degrabă, câtă memorie ocupă o matrice?<br>
+
+Răspunsul diferă în funcție de doi factori:<br>
+
+tipul elementelor matricei;<br>
+dimensiunile precizate la declarare;<br>
+De exemplu, pentru următoarea declarare: int A[1000][1000]<br>
+matricea A are 1000 * 1000 = 1000000 de elemente de tip int. O dată de tip int se reprezintă pe (ocupă) 4B, deci matricea A va ocupa  4 * 1000 * 1000 B = 4.000.000B, adică ceva mai puțin de 4MB.
+<br> </p>
+<br><br><br>
+	 <hr><br><br />
+<big id="subtit">Parcurgerea tablourilor bidimensionale:</big>
+<br>
+<p>Dimensiunile unei matrice
+la fel ca în cazul tablourilor unidimensionale, și tablourile bidimensionale au două categorii de dimensiuni:<br>
+
+*dimensiunile fizice, maxime – numărul maxim de linii, respectiv coloane pe care le poate avea tabloul; de regula se precizează în enunțul problemei<br>
+*dimensiunile logice, curente – numărul de linii linii și de coloane pe care le are matricea la un moment dat, pe parcursul execuției programului. Nu pot să depășească dimensiunile fizice.<br>
+Datorită existenței acestor dimensiuni logice, într-un program C/C++ care folosește tablouri bidimensionale, pe lângă variabila care reprezintă tabloul propriu-zis este necesară prezența a încă două variabile, de regulă notate cu n și m, care reprezintă numărul curent de linii, respectiv coloane ale tabloului.
+<br>
+	<pre>int a[100];[100],n,m,i,j</pre>
+	<br><br>
+<sub>Algoritm parcurgere:</sub><br>
+<pre>for(int i = 0 ; i < n ; i ++)<br>
+    for(int j = 0 ; j < m ; j ++)
+</pre>
+<br><br>
+<p>Toate elementele de pe o anumită linie au același indice de linie și diferă prin indicele de coloană.<br>
+ Pentru a parcurge o anumită linie k, vom parcurge indici de coloană:
+<p>
+<br><br>
+<sub>Parcurgerea unei linii</sub>
+<br>
+<pre>for(int j = 0 ; j < m ; j ++)<br>
+{<br>
+    // A[k][j]<br>
+} <br>
+</pre>
+<br><br>
+<p>Toate elementele de pe o anumită coloană au același indice de coloană și diferă prin indicele de linie. Pentru a parcurge o anumită coloană k, vom parcurge indici de linie:
+</p><br>
+<sub>Parcurgerea unei coloane</sub>
+<pre><br>
+for(int i = 0 ; i < n ; i ++)<br>
+{<br>
+    // A[i][k]<br>
+}<br>
+</pre>
+<br><br><br><br>
+<p>De regulă, elementele matricei se dau în ordine:<br>
+ de sus în jos și de la stânga la dreapta. Citirea presupune nu doar citirea elementelor matricei, dar și citirea dimensiunilor n și m:<br>
+</p>
+<sub>Citirea unei matrice:</sub>
+<br>
+<pre>
+cin >> n >> m;
+for(int i = 0 ; i < n ; i ++)
+    for(int j = 0 ; j < m ; j ++)
+        cin >> A[i][j];
+</pre>
+<br><br>
+<p>Pentru a obține aspectul specific tabloului bidimensional, după afișarea elementelor de fiecare linie vom trece la linia<br>
+ următoare a ecranului. Elementele fiecărei linii sunt de regulă separate printr-un spațiu:</p>
+<br>
+<sub>Afișarea unei matrice</sub><br>
+<pre>
+for(int i = 0 ; i < n ; i ++)
+{
+    for(int j = 0 ; j < m ; j ++)  
+        cout << A[i][j] << " "; 
+    cout << endl; 
+}
+</pre>
+<br><br><br><br><br>
+<big id="subtit">Eliminarea elementelor</big><br>
+<p>Algoritmul de mai jos elemina linia k din matrice.</p>
+<pre>
+for(i=k;i< n-1;i++)
+ for(j=0;j< m;j++)
+ a[i][j]=a[i+1][j];
+ --n;
+</pre>
+<br><br><br>
+<p>Algoritmul de mai jos elemina coloana k din matrice.</p>
+<pre>
+        for(i=0;i< n;i++)
+            for(j=k-1;j< m-1;j++)
+            a[i][j]=a[i][j+1];
+          --m;
+</pre><br><br><br>
+<big id="subtit">Inserarea elementelor:</big><br>
+<p>Algoritmul de mai jos insereaza o linie nouă pe poziția k in matrice(elementele liniei sunt într-un vector v)</p>
+<pre>
+for (i=n-1;i>=k;i--)
+for (j=0;j< m;j++)
+a[i+1][j]=a[i][j];
+for (j=0;j< m;j++)
+a[k][j]=v[j];
+n++;
+</pre><br><br><br>
+<p>Algoritmul de mai jos insereaza o coloană nouă pe poziția k în matrice(elementele coloanei sunt într-un vector v)</p>
+<pre>
+for (i=0;i< n;i++)
+for (j=m-1;j >=k;j--)
+a[i][j+1]=a[i][j];
+for (j=0;j< n;j++)
+a[j][k]=v[j];
+m++;
+</pre>
+
+<br><br><br><br><br>
+<em>Vezi şi:</em>
+<a href="matriciP.html">* matrici patratice</a><br>
+<small>________</small>
+<a href="../files.html">* fișiere</a><br>
+<small>________</small>
+<a href="../probleme.html">* probleme</a>
+<br><br><br>
+<footer>
+</footer>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+#include <fstream>
+#include <iostream>
+using namespace std;
+ifstream fin("file.txt");
+
+int main() {
+
+float x,s=0.0,p=1.0;
+unsigned nr=0;
+while (fin>>x)
+{
+  if (x>0.0)
+    s+=x;
+  else if (!x)
+        nr++;
+   else
+     p*=x;
+}
+cout<<"s="<<s<<endl;
+cout<<"nr="<<nr<<endl;
+cout<<"p="<<p;
+  return 0;
+}
+
+

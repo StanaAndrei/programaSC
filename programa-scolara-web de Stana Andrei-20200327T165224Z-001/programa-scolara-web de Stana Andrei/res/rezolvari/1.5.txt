@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+int a[100][100],n,i,j,m,v[100],k=0;
+cout<<"n=";cin>>n;
+cout<<"m=";cin>>m;
+for (i=0;i<n;i++)
+for (j=0;j<m;j++)
+cin>>a[i][j];
+cout<<endl<<"linie:"<<endl;
+for (i=0;i<m;i++)
+cin>>v[i];
+for (i=0;i<n;i++)
+for (j=0;j<m;j++)
+k+=a[i][j];
+k/=n*m;
+k%=n;
+for (i=n-1;i>=k;i--)
+for (j=0;j<m;j++)
+a[i+1][j]=a[i][j];
+for (j=0;j<m;j++)
+a[k][j]=v[j];
+n++;
+cout<<endl;
+for (i=0;i<n;i++)
+{
+    for (j=0;j<m;j++)
+        cout<<a[i][j]<<' ';
+    cout<<endl;
+}
+
+return 0;
+}

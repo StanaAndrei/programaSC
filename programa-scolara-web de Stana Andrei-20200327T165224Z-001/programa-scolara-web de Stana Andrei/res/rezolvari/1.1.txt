@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+unsigned long n,m,v[101][101],i,S=0,j;
+
+cout<<"n=";cin>>n;
+cout<<"m=";cin>>m;
+
+for (i=0;i<n;++i)
+for (j=0;j<m;++j)
+cin>>v[i][j];
+
+for (i=0;i<n;++i)
+for (j=0;j<m;++j)
+{
+    if (v[i][j]%2==0)
+    S+=v[i][j];
+
+}
+
+cout<<"S="<<S;
+
+return 0;}

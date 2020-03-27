@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+int a[100][100],n,i,j;
+cout<<"n=";cin>>n;
+for (i=0;i<n;i++)
+    for (j=0;j<n;j++)
+     cin>>a[i][j];
+cout<<"Elemente de sub diagonala pricipala: ";
+for (i=1;i<n;i++)
+for (j=0;j<i;j++)
+cout<<a[i][j]<<' ';
+cout<<endl;
+cout<<"Elemente de pe diagonala principala: ";
+for (i=0;i<n;i++)
+cout<<a[i][i]<<' ';
+cout<<endl;
+cout<<"Elementele de deasupra diagonalei pricipale: ";
+for (i=0;i<n-1;i++)
+for (j=i+1;j<n;j++)
+cout<<a[i][j]<<' ';
+cout<<endl;
+cout<<"MODIFICARE MATRICE:"<<endl;
+cout<<"-cresc cu 1 elementele de sub diagonala principala;"<<endl;
+cout<<"-ridic la patrat elementele de pe diagonala principala;"<<endl;
+cout<<"-scad cu 1 elementele de peste diagonala principala;"<<endl;
+for (i=0;i<n;i++)
+for (j=0;j<n;j++)
+if (j<i)
+a[i][j]++;
+else if (i==j)
+a[i][j]*=a[i][j];
+else if (j>i)
+a[i][j]--;
+cout<<"NOUA MATRICE E:"<<endl;
+for (i=0;i<n;i++) {
+for (j=0;j<n;j++)
+cout<<a[i][j]<<' ';
+cout<<endl;
+}
+
+cout<<"DE ACUM SE FACE REFERINTA LA NOUA MATRICE!"<<endl;
+cout<<"Elementele sub diagonala secundara: "<<endl;
+for (i=1;i<n;i++)
+for (j=n-i;j<n;j++)
+cout<<a[i][j]<<' ';
+cout<<endl;
+cout<<"Elementele de pe diagonala secundara:"<<endl;
+for (i=0;i<n;i++)
+cout<<a[i][n-i-1]<<' ';
+cout<<endl;
+cout<<"Elementele de peste diagonala secundara:"<<endl;
+for (i=0;i<n-1;i++)
+for (j=0;j<n-i-1;j++)
+cout<<a[i][j]<<' ';
+cout<<endl;
+cout<<"MODIFICARE MATRICE:"<<endl;
+cout<<"-cresc cu 1 elementele de sub diagonala secundara;"<<endl;
+cout<<"-ridic la patrat elementele de pe diagonala secundara;"<<endl;
+cout<<"-scad cu 1 elementele de peste diagonala secundara;"<<endl;
+for (i=0;i<n;i++)
+for (j=0;j<n;j++)
+if (j>n-i-1)
+a[i][j]++;
+else if (j==n-i-1)
+a[i][j]*=a[i][j];
+else if (j<n-i-1)
+a[i][j]--;
+cout<<"NOUA MATRICE E:"<<endl;
+for (i=0;i<n;i++) {
+for (j=0;j<n;j++)
+cout<<a[i][j]<<' ';
+cout<<endl;
+}
+return 0;
+}
